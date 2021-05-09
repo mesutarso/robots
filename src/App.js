@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import CardList from "./components/CardList/CardList.jsx";
 import SearchBox from "./components/SearchBox/SearchBox.jsx";
 import Title from "./components/Text/Title";
+import { Switch, Route } from "react-router-dom";
 
 function App() {
   const [robots, setrobots] = useState([]);
