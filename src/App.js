@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
+import { useFetch } from "./hooks/useFetch";
 import CardList from "./components/CardList/CardList.jsx";
 import SearchBox from "./components/SearchBox/SearchBox.jsx";
 import Title from "./components/Text/Title";
+import { URL } from "./utils/api";
 import { Switch, Route } from "react-router-dom";
 
 function App() {
-  const [robots, setrobots] = useState([]);
-  const [robotsCopy, setrobotsCopy] = useState([]);
+  const [robots, robotsCopy, setrobotsCopy] = useFetch(URL);
 
   const robotSearch = (event) => {
     let query = event.target.value;
@@ -16,17 +16,6 @@ function App() {
     );
     setrobotsCopy(SearchRobots);
   };
-  useEffect(async () => {
-    let result = await fetch("http://jsonplaceholder.typicode.com/users");
-    result = await result.json();
-    result = await result.map(({ id, name, email }) => ({
-      id,
-      name,
-      email,
-    }));
-    setrobots([...result]);
-    setrobotsCopy([...result]);
-  }, []);
 
   return (
     <div className="App">

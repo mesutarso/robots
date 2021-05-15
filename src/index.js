@@ -1,14 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import CardDetail from "./components/CardDetail/CardDetail";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={App}></Route>
+        <Route path="/robot/:id" component={CardDetail}></Route>
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );
