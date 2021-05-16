@@ -5,8 +5,15 @@ import { CardListStyle } from "./CardListStyle";
 export default function CardList({ robots }) {
   return (
     <CardListStyle>
-      {robots.map((robot) => {
-        return <Card id={robot.id} name={robot.name} email={robot.email} />;
+      {robots.map(({id,name,email}) => {
+        return (
+          <Card
+            key={id}
+            id={id}
+            name={name}
+            email={email}
+          />
+        );
       })}
     </CardListStyle>
   );

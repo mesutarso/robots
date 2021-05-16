@@ -4,13 +4,16 @@ import { URL } from "../utils/api";
 const useFetchUser = (userID) => {
   const [robot, setRobot] = useState({});
 
-  useEffect(async () => {
-    const response = await fetch(`${URL}/${userID}`);
-    const data = await response.json();
-    setRobot({ ...data });
-  }, [robot]);
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(`${URL}/${userID}`);
+      const data = await response.json();
+      setRobot({ ...data });
+    }
+    fetchData();
+  }, [userID]);
 
-  return robot;
+  return [robot];
 };
 
 export { useFetchUser };
