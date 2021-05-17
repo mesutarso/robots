@@ -4,8 +4,12 @@ export const CardStyle = styled.div`
   background-color: aqua;
   color: #111;
   padding: 30px;
-  margin: 0.5rem;
+  margin: 1rem;
   text-align: center;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
   p {
     margin-bottom: 1rem;
   }
