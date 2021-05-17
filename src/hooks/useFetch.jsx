@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 const useFetch = (url) => {
   const [robots, setRobots] = useState([]);
   const [robotsCopy, setrobotsCopy] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fectchData = async () => {
@@ -16,11 +17,12 @@ const useFetch = (url) => {
 
       setRobots([...dataFiltered]);
       setrobotsCopy([...dataFiltered]);
+      setIsLoading(false);
     };
     fectchData();
   }, []);
 
-  return [robots, robotsCopy, setrobotsCopy];
+  return [robots, robotsCopy, isLoading, setrobotsCopy];
 };
 
 export { useFetch };

@@ -3,10 +3,11 @@ import CardList from "./components/CardList/CardList.jsx";
 import SearchBox from "./components/SearchBox/SearchBox.jsx";
 import Title from "./components/Text/Title";
 import { URL } from "./utils/api";
-
+import Loading from "./components/Loading/Loading";
+import NoFoundText from "./components/SearchBox/NoFoundText";
 
 function App() {
-  const [robots, robotsCopy, setrobotsCopy] = useFetch(URL);
+  const [robots, robotsCopy, isLoading, setrobotsCopy] = useFetch(URL);
 
   const robotSearch = (event) => {
     let query = event.target.value;
@@ -21,7 +22,13 @@ function App() {
     <div className="App">
       <Title />
       <SearchBox onChange={robotSearch} />
-      <CardList robots={robotsCopy} />
+      {isLoading ? (
+        <Loading />
+      ) : robotsCopy.length === 0 ? (
+        <NoFoundText />
+      ) : (
+        <CardList robots={robotsCopy} />
+      )}
     </div>
   );
 }

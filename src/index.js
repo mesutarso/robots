@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import CardDetail from "./components/CardDetail/CardDetail";
+import NotFound from "./components/Loading/NotFound";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -12,6 +13,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={App}></Route>
         <Route path="/robot/:id" component={CardDetail}></Route>
+        <Route path="/*" component={NotFound}></Route>
       </Switch>
     </Router>
   </React.StrictMode>,
