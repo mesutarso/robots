@@ -4,6 +4,9 @@ export const CardDetailStyle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
   width: 70%;
 
   margin: auto;
@@ -11,7 +14,9 @@ export const CardDetailStyle = styled.div`
   background-color: #010101;
 
   .image-card {
-    width: 50%;
+    width: 100%;
+    padding: 30px;
+    background-color: inherit;
 
     > img {
       max-width: 100%;
@@ -31,7 +36,7 @@ export const CardDetailStyle = styled.div`
       background-color: #5792a8;
       padding: 16px 25px;
       color: #fff;
-      text-transform: uppercase;
+      text-transform: capitalize;
     }
   }
 `;
