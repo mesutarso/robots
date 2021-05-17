@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useFetchUser } from "../../hooks/useFetchUser";
 import { CardDetailStyle } from "./CardDetailStyle";
 
-export default function CardDetail({}) {
+export default function CardDetail() {
   const { id } = useParams();
   const [robot] = useFetchUser(id);
 

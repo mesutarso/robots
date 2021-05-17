@@ -20,7 +20,7 @@ const useFetch = (url) => {
       setIsLoading(false);
     };
     fectchData();
-  }, []);
+  }, [url]);
 
   return [robots, robotsCopy, isLoading, setrobotsCopy];
 };
